@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Project (Movie API)</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./index.js" defer></script>    
+<script src="https://kit.fontawesome.com/0da4b0e651.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section id="landing-page">
+        <div class="container">
+            <div class="row">
+                <nav class="">
+                    <figure>
+                        <img class="nav__logo" src="https://t3.ftcdn.net/jpg/04/84/16/58/240_F_484165867_mYKhr65zUWkReGSbH93zHr9xdVXgmLxr.jpg" alt="">
+                    </figure>
+                    <ul class="nav__link--list">
+                        <li class="nav__link">
+                            <a href="#" class="
+                            nav__link--anchor
+                            link__hover-effect
+                            ">Home</a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="#" class="
+                            nav__link--anchor
+                            link__hover-effect
+                            ">Find Your Movie</a>
+                        </li>
+                        <button class="btn">CONTACT</button>
+                    </ul>
+                </nav>
+               
+                <header class="title">
+                    <h1 class="title-with-box">Browse Our Movies</h1>
+                    <div class="input__wrapper">
+                        <input type="text" id="search__Input" placeholder="Search by Title, Year or Keyword" onchange="searchChange(event)">
+                            <button class="search__btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                       
+                    </div>
+                    
+                </header>
+            </div>
+        </div>
+    </section>
+
+    <section id="search">
+        <div class="container search__container">
+            <div class="row">
+                <div class="search__header">
+                <div class="search__title">
+                    <h1 class="title__search">Search Results:
+                        <span class="search__results"></span>
+                    </h1>
+                </div>
+
+                <select id="filter" onchange="sortChange(event)">
+                    <option value="" disabled selected>Sort</option>
+                    <option value="Newest">Newest to Oldest</option>
+                    <option value="Oldest">Oldest to Newest</option>
+                </select>
+                </div>
+
+                <div class="movie__results movies__loading">
+                <i class="fas fa-spinner books__loading--spinner"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
