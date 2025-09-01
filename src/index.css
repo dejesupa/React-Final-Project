@@ -190,6 +190,7 @@ justify-content: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 .header__container {
     width: 100%;
@@ -198,7 +199,7 @@ justify-content: center;
 
 .input__wrapper {
     display: flex;
-    
+
 }
 .search__container {
     padding-top: 32px;

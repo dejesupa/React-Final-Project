@@ -1,5 +1,6 @@
 import Landing from "./components/Landing";
 import Nav from "./components/Nav";
+import Search from "./components/Search";
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Nav />
       <Landing />
+      <Search />
     </div>
   );
 }
