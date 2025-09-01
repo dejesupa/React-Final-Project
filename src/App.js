@@ -1,15 +1,26 @@
-import Landing from "./components/Landing";
 import Nav from "./components/Nav";
-import Search from "./components/Search";
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Home from "./pages/Home";
+import Selection from "./pages/Selection"
+import Movie from "./pages/Movie"
 
 
 function App() {
   return (
-    <div className="App">
-      <Nav />
-      <Landing />
-      <Search />
+    <Router>
+      <div className="App">
+        <Nav />
+        <Routes>
+      
+      <Route path="/" element={<Home />} />
+      <Route path="/movies" element={<Selection />} />
+      <Route path="/movie" element={<Movie />} />
+    
+      </Routes>
     </div>
+    
+    </Router>
+    
   );
 }
 
