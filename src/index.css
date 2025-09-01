@@ -179,6 +179,27 @@ SEARCH
 
 */
 
+#landing {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.header__description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header__container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.input__wrapper {
+    display: flex;
+    
+}
 .search__container {
     padding-top: 32px;
 }
