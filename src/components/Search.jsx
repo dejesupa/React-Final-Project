@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Movie from "../pages/Movie";
 
 const Search = () => {
 
@@ -63,8 +64,10 @@ if (filter === "Oldest") {
           </div>
         </div>
       </div>
-      <div className="movie__list">
-        {movies.map((movie) => (
+      <div className="container movie__container">
+        <div className="row movie__row">
+    <div className="movie__list">
+         {movies.map((movie) => (
           <div className="movie" key={movie.Title}>
             <Link to="/movie">
             <figure className="movie__img--wrapper">
@@ -76,6 +79,10 @@ if (filter === "Oldest") {
           </div>
         ))}
       </div>
+      </div>
+        </div>
+    
+      
     </section>
   );
 

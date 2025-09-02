@@ -1,8 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Landing = () => {
+
+function onChange(event) {
+    console.log(event.target.value)
+}
+
+const [movies, setMovies] = useState([]);
+
+  async function getMovies() {
+    const { data } = await axios.get(
+      "https://www.omdbapi.com/?apikey=c24b97b7&s=fast"
+    );
+    setMovies(data.Search.slice(0, 6));
+  }
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   return (
    <section id="landing">
     <div className="header__container">
