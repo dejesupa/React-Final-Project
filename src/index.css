@@ -230,6 +230,11 @@ justify-content: center;
     padding-top: 12px;
 }
 
+.movie__list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .movie__img {
     max-width: 100%;
     height: auto;

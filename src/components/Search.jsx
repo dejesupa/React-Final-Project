@@ -1,34 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Search = () => {
-  const [option, setOption] = useState([]);
-
-  function filterMovies(filter) {
-    console.log (filter)
-
-    if (filter === "Newest") {
-      setOption(option.slice().sort((a, b) => b.Year - a.Year));
-    }
-    if (filter === "Oldest") {
-      setOption(option.slice().sort((a, b) => a.Year - b.Year));
-    }
- 
-  }
-
-  //  function sortChange(event) {
-  //         const sortOption = event.target.value
-
-  //         let sortedMovies = [...currentMovies]
-
-  //         if (sortOption === "Newest") {
-  //             sortedMovies.sort((a, b) => (b.Year) - (a.Year));
-  //         }
-  //         else if (sortOption === "Oldest") {
-  //             sortedMovies.sort((a, b) => (a.Year) - (b.Year));
-  //         }
-
-  //         displayMovies(sortedMovies);
 
   const [movies, setMovies] = useState([]);
 
@@ -36,12 +10,30 @@ const Search = () => {
     const { data } = await axios.get(
       "https://www.omdbapi.com/?apikey=c24b97b7&s=fast"
     );
-    setMovies(data.Search);
+    setMovies(data.Search.slice(0, 6));
   }
 
   useEffect(() => {
     getMovies();
   }, []);
+
+
+
+  function filterMovies(filter) {
+    console.log (filter)
+
+    if (filter === "Newest") {
+     setMovies((prevMovies) => [...prevMovies].sort((a, b) => b.Year - a.Year)
+    );
+}
+
+if (filter === "Oldest") {
+    setMovies((prevMovies) => [...prevMovies].sort((a, b) => a.Year - b.Year)
+    );
+}
+  };
+     
+     
 
   return (
     <section id="search">
@@ -74,9 +66,11 @@ const Search = () => {
       <div className="movie__list">
         {movies.map((movie) => (
           <div className="movie" key={movie.Title}>
+            <Link to="/movie">
             <figure className="movie__img--wrapper">
               <img className="movie__img" src={movie.Poster} alt="" />
             </figure>
+            </Link>
             <div className="movie__title">{movie.Title}</div>
             <div className="movie__year">{movie.Year}</div>
           </div>
@@ -84,6 +78,7 @@ const Search = () => {
       </div>
     </section>
   );
+
 };
 
 export default Search;

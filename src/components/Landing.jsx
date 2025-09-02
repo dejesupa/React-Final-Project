@@ -11,7 +11,7 @@ const Landing = () => {
                   <h1>Browse Our Movies</h1>
             </div>          
             <div className="input__wrapper">
-                <input type="text" id="search__Input" placeholder="Search by Title, Year or Keyword" onchange="searchChange(event)" />
+                <input type="text" id="search__Input" placeholder="Search by Title, Year or Keyword" onChange="searchChange(event)" />
                 <button className="search__btn">
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
