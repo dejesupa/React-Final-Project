@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Movie from "../pages/Movie";
 
 const Search = () => {
+const { id } = useParams;
+const [movies, setMovies] = useState([]);
 
-  const [movies, setMovies] = useState([]);
 
   async function getMovies() {
     const { data } = await axios.get(
@@ -13,11 +14,12 @@ const Search = () => {
     );
     setMovies(data.Search.slice(0, 6));
   }
+ 
+
 
   useEffect(() => {
     getMovies();
   }, []);
-
 
 
   function filterMovies(filter) {
