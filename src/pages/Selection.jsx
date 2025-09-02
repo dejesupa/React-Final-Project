@@ -1,12 +1,13 @@
 import React from 'react'
 import Landing from '../components/Landing'
-import Search from "../components/Search"
+import Filter from "../components/Filter"
+
 
 const Selection = () => {
   return (
     <> 
       <Landing />
-      <Search />
+      <Filter />
       </>
   )
 }

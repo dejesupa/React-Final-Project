@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Movie from "../pages/Movie";
 
-const Search = () => {
+const Filter = () => {
 const { id } = useParams;
 const [movies, setMovies] = useState([]);
 
@@ -90,4 +90,4 @@ if (filter === "Oldest") {
 
 };
 
-export default Search;
+export default Filter;

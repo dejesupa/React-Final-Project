@@ -8,30 +8,33 @@ import { useParams } from "react-router-dom";
 const Landing = () => {
  const { id } = useParams;
  const [movies, setMovies] = useState([]);
-const [searchTerm, setSearchTerm] = useState(id);
+const [query, setQuery] = useState("");
 
-
-  function onSearch() {
-    getMovies(searchTerm)
-  }
-
-  async function getMovies(movieId) {
+  async function getMovies() {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=c24b97b7&s=${movieId || id}`
+      `https://www.omdbapi.com/?apikey=c24b97b7&s=${query}`
     );
+
+    console.log(data)
     setMovies(data.Search.slice(0, 6));
   }
 
   function onSearchKeyPress(key) {
     if (key === 'Enter') {
-        onSearch()
-    }
-         
-  }
+        getMovies();
+    }}
+
+    function searchTerm(query) {
+    if (query === "") {
+        setMovies([]);
+    } }
 
   useEffect(() => {
-    getMovies();
-  }, []);
+  getMovies();
+   
+    }
+  
+  , []);
 
   return (
     <section id="landing">
@@ -46,10 +49,10 @@ const [searchTerm, setSearchTerm] = useState(id);
               id="search__Input"
               value={searchTerm}
               placeholder="Search by Title, Year or Keyword"
-              onChange={(event) => setSearchTerm(event.target.value)}
+              onChange={(event) => setQuery(event.target.value)}
                 onKeyUp={(event) => onSearchKeyPress(event.key)}   
-           />
-            <button className="search__btn" onClick={() => onSearch()}>
+            />
+            <button className="search__btn" onClick={(event) => getMovies(event.target.value)}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
