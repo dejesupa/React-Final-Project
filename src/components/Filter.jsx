@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import Movie from "../pages/Movie";
 
 const Filter = () => {
 const { id } = useParams;
 const [movies, setMovies] = useState([]);
+const [query, setQuery] = useState("");
 
 
   async function getMovies() {
     const { data } = await axios.get(
-      "https://www.omdbapi.com/?apikey=c24b97b7&s=fast"
+      `https://www.omdbapi.com/?apikey=c24b97b7&s=${query}`
     );
     setMovies(data.Search.slice(0, 6));
   }
  
-
-
-  useEffect(() => {
-    getMovies();
-  }, []);
 
 
   function filterMovies(filter) {
@@ -42,6 +39,19 @@ if (filter === "Oldest") {
     <section id="search">
       <div className="container search__container">
         <div className="row">
+          <div className="input__wrapper">
+                      <input
+                        type="text"
+                        id="search__Input"
+                        title={query}
+                        placeholder="Search by Title, Year or Keyword"
+                        onChange={(event) => setQuery(event.target.value)}
+                          // onKeyUp={(event) => onSearchKeyPress(event.key)}   
+                      />
+                      <button className="search__btn" onClick={getMovies}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                      </button>
+                    </div>
           <div className="search__header">
             <div className="search__title">
               <h1 className="title__search">

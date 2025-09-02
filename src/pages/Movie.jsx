@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const Movie = ({ search }) => {
+const Movie = () => {
+
+
   return (
     <div id="movie__body">
       <main id="movie__main">
@@ -12,11 +14,11 @@ const Movie = ({ search }) => {
               <Link to="/movies" className="movie__link">
                 <FontAwesomeIcon icon="arrow-left" />
               </Link>
-              <Link to="/movies">
+              <Link to="/movies" className="movie__link">
                 <h2 className="movie__selected--title">Movies</h2>
               </Link>
             </div>
-            <div className="book__selected">
+            <div className="movie__selected">
               <figure className="movie__selected--figure">
                 <img
                   src="https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_SX300.jpg"
@@ -26,7 +28,7 @@ const Movie = ({ search }) => {
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">
-                  The Fast and the Furious
+                 Book Title
                 </h2>
                 <div className="book__selected--year">
                     2003
