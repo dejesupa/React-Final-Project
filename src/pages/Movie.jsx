@@ -1,8 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const Movie = () => {
+
+const { imdbID } = useParams;
+const [movies, setMovies] = useState([]);
+
+
+async function getMovies() {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?apikey=c24b97b7&s=${imdbID}`
+    );
+    setMovies(data.Search);
+
+    //   const movie = movies.find(movie => +movies.id === +id)
+    //   console.log(getMovies)
+  }
+
+
+ 
 
 
   return (
@@ -21,14 +39,14 @@ const Movie = () => {
             <div className="movie__selected">
               <figure className="movie__selected--figure">
                 <img
-                  src="https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_SX300.jpg"
+                  src={"https://m.media-amazon.com/images/M/MV5BZGRiMDE1NTMtMThmZS00YjE4LWI1ODQtNjRkZGZlOTg2MGE1XkEyXkFqcGc@._V1_SX300.jpg"}
                   alt=""
                   className="book__selected--img"
                 />
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">
-                 Book Title
+              Movie Title
                 </h2>
                 <div className="book__selected--year">
                     2003

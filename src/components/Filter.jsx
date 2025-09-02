@@ -16,8 +16,6 @@ const [query, setQuery] = useState("");
     );
     setMovies(data.Search.slice(0, 6));
   }
- 
-
 
   function filterMovies(filter) {
     console.log (filter)
@@ -81,7 +79,7 @@ if (filter === "Oldest") {
     <div className="movie__list">
          {movies.map((movie) => (
           <div className="movie" key={movie.Title}>
-            <Link to="/movie">
+            <Link to={`/movie/${movie.imdbID}`}>
             <figure className="movie__img--wrapper">
               <img className="movie__img" src={movie.Poster} alt="" />
             </figure>
