@@ -290,6 +290,23 @@ justify-content: center;
     animation: rotate 600ms infinite linear;
 }
 
+.movie__img--skeleton {
+    height: 21px;
+    width: 100%
+}
+
+.skeleton {
+    background-color: rgb(227, 227, 227) !important;
+    margin-bottom: 8px;
+}
+
+.movie__title--skeleton {
+    height: 21px;
+    width: 100%
+}
+
+
+
 @keyframes rotate {
     0% {
         transform:rotate(0);
