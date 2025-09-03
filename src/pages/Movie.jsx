@@ -37,9 +37,7 @@ async function getMovies() {
             <h2 className="movie__selected--title">Movies</h2>
             </Link>
         </div>
-        {
-            loading
-            ? (
+        {loading ? (
                 <> 
                  <div className="movie__img--skeleton"></div>
             <div className="skeleton movie__title--skeleton"></div>
@@ -47,10 +45,8 @@ async function getMovies() {
             <div className="skeleton movie__summary--skeleton"></div>
             <div className="skeleton movie__description--skeleton"></div>
             </>
-            )
-            : (
-                <> 
-                <div className="movie__selected--wrapper">
+            ) : (        
+         <div className="movie__selected--wrapper">
         <div className="movie__selected">
             <figure className="movie__selected--figure">
             <img
@@ -72,14 +68,11 @@ async function getMovies() {
             <p className="movie__summary--para">
                 {movies?.Plot}           
                  </p>
-            </div>
         </div>
         </div>
         </div>
-        </>
-            )
-        }
-        
+            )}
+        </div>
     </div>
     </main>
 </div>

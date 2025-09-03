@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faSpinner } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
@@ -8,6 +8,7 @@ const Filter = () => {
 const { id } = useParams;
 const [movies, setMovies] = useState([]);
 const [query, setQuery] = useState("");
+const [loading, setLoading] = useState(true);
 
 
   async function getMovies() {
@@ -15,6 +16,7 @@ const [query, setQuery] = useState("");
       `https://www.omdbapi.com/?apikey=c24b97b7&s=${query}`
     );
     setMovies(data.Search.slice(0, 6));
+    setLoading(false);
   }
 
   function filterMovies(filter) {
@@ -68,16 +70,21 @@ if (filter === "Oldest") {
               <option value="Newest">Newest to Oldest</option>
               <option value="Oldest">Oldest to Newest</option>
             </select>
-            <div className="movie__results movies__loading">
-              <i className="fas fa-spinner books__loading--spinner"></i>
-            </div>
           </div>
         </div>
       </div>
       <div className="container movie__container">
         <div className="row movie__row">
     <div className="movie__list">
-         {movies.map((movie) => (
+
+      {loading ?
+        (
+          <div className="movie__results movies__loading movies__loading--spinner">
+            <FontAwesomeIcon icon={faSpinner} />
+                </div>
+        ) : (
+          <> 
+          {movies.map((movie) => (
           <div className="movie" key={movie.Title}>
             <Link to={`/movie/${movie.imdbID}`}>
             <figure className="movie__img--wrapper">
@@ -88,6 +95,11 @@ if (filter === "Oldest") {
             <div className="movie__year">{movie.Year}</div>
           </div>
         ))}
+        </>
+        )
+
+      }
+         
       </div>
       </div>
         </div>

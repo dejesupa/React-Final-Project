@@ -278,11 +278,11 @@ justify-content: center;
     color: black;
 }
 
-.books__loading--spinner {
+.movies__loading--spinner {
     display: none !important;
 }
 
-.books__loading .books__loading--spinner {
+.movies__loading .books__loading--spinner {
     display: block !important;
 }
 
