@@ -84,8 +84,12 @@ if (filter === "Oldest") {
 
       {loading ?
         (
-          <div className="movie__results movies__loading movies__loading--spinner">
-            <FontAwesomeIcon icon={faSpinner} />
+          <div className="movie__results">
+            <div className="movies__loading">
+              <div className="movies__loading--spinner">
+                <FontAwesomeIcon icon={faSpinner} />
+              </div>
+            </div>
                 </div>
         ) : (
           <> 

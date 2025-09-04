@@ -45,7 +45,8 @@ async function getMovies() {
             <div className="skeleton movie__summary--skeleton"></div>
             <div className="skeleton movie__description--skeleton"></div>
             </>
-            ) : (        
+            ) : (       
+                <div className="movie__selected--row">
          <div className="movie__selected--wrapper">
         <div className="movie__selected">
             <figure className="movie__selected--figure">
@@ -71,6 +72,7 @@ async function getMovies() {
         </div>
         </div>
         </div>
+        </div> 
             )}
         </div>
     </div>
