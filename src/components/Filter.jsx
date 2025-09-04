@@ -8,15 +8,20 @@ const Filter = () => {
 const { id } = useParams;
 const [movies, setMovies] = useState([]);
 const [query, setQuery] = useState("");
-const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(false);
 
 
   async function getMovies() {
+    setLoading(true);
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=c24b97b7&s=${query}`
     );
+
+    setTimeout(() => {
     setMovies(data.Search.slice(0, 6));
     setLoading(false);
+    }, 2000);
+ 
   }
 
   function filterMovies(filter) {
