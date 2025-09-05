@@ -10,6 +10,9 @@ const [movies, setMovies] = useState([]);
 const [query, setQuery] = useState("");
 const [loading, setLoading] = useState(false);
 
+const handleSearch = ((event) => {
+  console.log("Search by:", query)
+}
 
   async function getMovies() {
     setLoading(true);
@@ -22,7 +25,8 @@ const [loading, setLoading] = useState(false);
     setLoading(false);
     }, 2000);
  
-  }
+  })
+
 
   function filterMovies(filter) {
     console.log (filter)
@@ -44,6 +48,9 @@ if (filter === "Oldest") {
     <section id="search">
       <div className="container search__container">
         <div className="row">
+          <div className="filter__title--wrapper">
+            <h2 className="filter__title">Browse Our Movies</h2>
+          </div>
           <div className="input__wrapper">
                       <input
                         type="text"
@@ -51,7 +58,13 @@ if (filter === "Oldest") {
                         title={query}
                         placeholder="Search by Title, Year or Keyword"
                         onChange={(event) => setQuery(event.target.value)}
-                          // onKeyUp={(event) => onSearchKeyPress(event.key)}   
+                        onKeyUp = {(event) => {
+                          if (event.key === "Enter") {
+                            handleSearch();
+                          }
+                        }}
+                          
+                        
                       />
                       <button className="search__btn" onClick={getMovies}>
                         <FontAwesomeIcon icon={faMagnifyingGlass} />

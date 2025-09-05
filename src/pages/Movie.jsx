@@ -1,3 +1,4 @@
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -7,9 +8,11 @@ const Movie = () => {
 
 const { imdbID } = useParams();
 const [movies, setMovies] = useState({});
-const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(false);
 
 async function getMovies() {
+     setLoading(true);
+
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=c24b97b7&i=${imdbID}`
     );
@@ -23,6 +26,10 @@ async function getMovies() {
         getMovies(imdbID);
     }
   }, [imdbID]);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
 
   return (
 <div id="movie__body">
@@ -38,13 +45,13 @@ async function getMovies() {
             </Link>
         </div>
         {loading ? (
-                <> 
-                 <div className="movie__img--skeleton"></div>
-            <div className="skeleton movie__title--skeleton"></div>
-            <div className="skeleton movie__year--skeleton"></div>
-            <div className="skeleton movie__summary--skeleton"></div>
-            <div className="skeleton movie__description--skeleton"></div>
-            </>
+                <div className="movie__results">
+                            <div className="movies__loading">
+                              <div className="movies__loading--spinner">
+                                <FontAwesomeIcon icon={faSpinner} />
+                              </div>
+                            </div>
+                                </div>
             ) : (       
                 <div className="movie__selected--row">
          <div className="movie__selected--wrapper">

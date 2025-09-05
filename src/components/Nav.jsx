@@ -7,7 +7,7 @@ const Nav = () => {
     <div className="container nav__container">
         <div className="row nav__row">
             <Link to="/">
-            <img src="https://t3.ftcdn.net/jpg/04/84/16/58/240_F_484165867_mYKhr65zUWkReGSbH93zHr9xdVXgmLxr.jpg" alt="" className="nav__logo" />
+            <img src="https://cdn.dribbble.com/userupload/42396578/file/original-f57912593b3f18b04e4fb0ea4a91b2cb.gif" alt="" className="nav__logo" />
             </Link>
             <ul className="nav__link--list">
                         <li className="nav__link">
