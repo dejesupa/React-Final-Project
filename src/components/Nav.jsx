@@ -6,9 +6,7 @@ const Nav = () => {
  <nav>
     <div className="container nav__container">
         <div className="row nav__row">
-            <Link to="/">
             <img src="https://cdn.dribbble.com/userupload/42396578/file/original-f57912593b3f18b04e4fb0ea4a91b2cb.gif" alt="" className="nav__logo" />
-            </Link>
             <ul className="nav__link--list">
                         <li className="nav__link">
                             <Link to="/" className="

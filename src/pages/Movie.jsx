@@ -55,7 +55,7 @@ async function getMovies() {
             ) : (       
                 <div className="movie__selected--row">
          <div className="movie__selected--wrapper">
-        <div className="movie__selected">
+        <div className="movie__chosen">
             <figure className="movie__selected--figure">
             <img
                 src={movies?.Poster}
@@ -71,11 +71,12 @@ async function getMovies() {
                {movies?.Year}
                 </div>
             <div className="movie__summary--title">
-                Summary
-            </div>
+                <strong>Summary</strong>
+            
             <p className="movie__summary--para">
                 {movies?.Plot}           
                  </p>
+                 </div>
         </div>
         </div>
         </div>

@@ -33,7 +33,7 @@ const Filter = () => {
       setLoading(false);
     }, 2000);
   }
-};
+
 
 function filterMovies(filter) {
   console.log(filter);
@@ -128,5 +128,5 @@ return (
     </div>
   </section>
 );
-
+};
 export default Filter;
