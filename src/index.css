@@ -159,11 +159,30 @@ input {
     /* justify-content: flex-end; */
 }
 
+.input {
+width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.input__area {
+    display: flex;
+    width: 800px;
+    padding: 10px;
+    font-size: 16px;
+    gap: 10px;
+}
+
 .input__wrapper {
     padding-top: 28px;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center */
 }
 
 .search__btn {
+    background-color: azure;
     color: #201d24;
     cursor: pointer;
     font-size: 24px;
@@ -171,6 +190,7 @@ input {
     padding: 12px 16px;
     border-style: initial;
     border-radius: 50%;
+  
 }
 
 /*

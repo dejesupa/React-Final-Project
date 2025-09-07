@@ -21,7 +21,7 @@ const Home = () => {
                  <div className="button__wrapper">
                         <button className="search__btn">
                         <Link to="/movies" className="btn__name">
-                    Search a Movie
+                    Search
                         </Link>
                         </button>
                     </div>
